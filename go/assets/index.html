@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <!--
+        ********************************************************************************
+        *                                   COMPATIBILITY                              *
+        ********************************************************************************
+        -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--
+        ********************************************************************************
+        *                                   FAVICON                                    *
+        ********************************************************************************
+        -->
+        <!-- <link rel="shortcut icon" href="carbon_favicon.svg" type="image/x-icon">-->
+        
+        <!--
+        ********************************************************************************
+        *                                   STYLES                                     *
+        ********************************************************************************
+        -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id='content-wrapper'>
+            <div class="row">
+                <h1>LaTex PDF Out</h1>
+            </div>
+
+            <iframe src="paper.pdf" type="application/pdf"></iframe>
+
+            <button id="submit">Submit</button>
+
+            <div id="result"></div>
+
+            <form
+              enctype="multipart/form-data"
+              action="https://localhost:443/api/pdf/upload"
+              method="post"
+            >
+              <input type="file" name="paper.tex" />
+              <input type="submit" value="upload" />
+            </form>
+        </div>
+
+        <script>
+            window.onload = function () {
+      
+              const XHR = function (url) {
+                return new Promise(function (resolve, reject) {
+                  let xhr = new XMLHttpRequest()
+      
+                  xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                      if (xhr.status === 201) return resolve(xhr.response)
+                      else return reject("Request failed - please try again!")
+                    }
+                  }
+            
+                  xhr.open('POST', url, true)
+                  xhr.setRequestHeader('Content-Type', 'application/json')
+                  xhr.withCredentials = false
+      
+                  xhr.send()
+                })
+              }
+      
+              document.getElementById("submit").onclick = function (e) {
+                e.preventDefault()
+      
+                XHR("https://localhost/api/makepdf").then(
+                    function (success) {
+                      const r = document.getElementById("result")
+                      const n = document.createTextNode(success)
+                      console.log(success)
+                      r.appendChild(n)
+                      const br = document.createElement("br")
+                      r.appendChild(br)
+                    },
+                    function (failure) {
+                      const r = document.getElementById("result")
+                      const n = document.createTextNode(failure)
+                      console.log(failure)
+                      r.appendChild(n)
+                      const br = document.createElement("br")
+                      r.appendChild(br)
+                    }
+                )
+              }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  latex:
+    build:
+      context: ./go
+      dockerfile: dockerfile
+    ports:
+      - '443:443'
+    restart: unless-stopped
+    networks:
+      - testnet
+
+networks:
+  testnet:
+    driver: bridge

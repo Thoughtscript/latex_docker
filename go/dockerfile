@@ -12,4 +12,10 @@ RUN apt autoremove
 RUN apt purge libkpathsea6
 RUN apt install texlive-latex-recommended -y
 
-CMD ["pdflatex", "hello-world.tex"]
+RUN apt install golang-go -y
+RUN go clean
+RUN go clean -modcache
+
+RUN pdflatex -output-directory=assets -jobname=paper assets/paper.tex
+
+CMD ["go", "run", "staticFileServer.go"]
