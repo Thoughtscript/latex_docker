@@ -12,7 +12,7 @@ func main() {
 	http.Handle("/", http.StripPrefix("/public/", fileServer))
 	http.Handle("/public/", http.StripPrefix("/public/", fileServer))
 
-	http.HandleFunc("/api/pdf", h.MakePdf)
+	http.HandleFunc("/api/pdf/make", h.MakePdf)
 	http.HandleFunc("/api/pdf/upload", h.UploadText)
 
 	// TLS
