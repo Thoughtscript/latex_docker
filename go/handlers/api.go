@@ -20,6 +20,10 @@ func MakePdf(w http.ResponseWriter, r *http.Request) {
 			cmd := exec.Command("bash", "makepdf.sh")
 			var out bytes.Buffer
 			cmd.Stdout = &out
+			err := cmd.Run()
+			if err != nil {
+			    fmt.Println(err)
+			}		
 			outputChannel <- out.String()
 		}()
 	
