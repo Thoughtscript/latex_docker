@@ -2,6 +2,7 @@
 
 [![](https://img.shields.io/badge/Go-1.22.2-blue.svg)](https://golang.org/pkg/)
 [![](https://img.shields.io/badge/LaTeX-TexLive-turquoise.svg)](https://www.latex-project.org/get/)
+[![](https://img.shields.io/badge/LATEX.js-0.12.6-red.svg)](https://latex.js.org/)
 
 - [x] Setup the necessary LaTeX dependencies
 - [x] Mount files
