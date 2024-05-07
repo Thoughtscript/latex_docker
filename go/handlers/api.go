@@ -90,7 +90,7 @@ func UploadText(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
-        }
+		}
 
 		destinationFile := "assets/paper.tex"
 		err = ioutil.WriteFile(destinationFile, input, 0644)
