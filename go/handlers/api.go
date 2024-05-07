@@ -87,18 +87,18 @@ func UploadText(w http.ResponseWriter, r *http.Request) {
 
 		// Copy tempfile into fixed file
 		input, err := ioutil.ReadFile(tempFile.Name())
-        if err != nil {
-                fmt.Println(err)
-                return
+		if err != nil {
+			fmt.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
         }
 
 		destinationFile := "assets/paper.tex"
-        err = ioutil.WriteFile(destinationFile, input, 0644)
-        if err != nil {
-                fmt.Println("Error creating", destinationFile)
-				fmt.Println(err)
-				w.WriteHeader(http.StatusBadRequest)
-        }
+		err = ioutil.WriteFile(destinationFile, input, 0644)
+		if err != nil {
+			fmt.Println("Error creating", destinationFile)
+			fmt.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
 
 	} else {
 		w.WriteHeader(http.StatusMethodNotAllowed)
