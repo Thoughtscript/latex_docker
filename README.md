@@ -9,6 +9,10 @@
 - [x] Host the PDF through a static file server
 - [x] Support for uploading text through the browser
 - [x] Support for regenerating the pdf within the container
+- [x] Support for writing latex in the browser (and rendering it)
+- [ ] Support for saving latex in the browser to `paper.tex`
+- [ ] Better styling
+- [ ] Tweak some JS and HTML functionality around redirects, rerendering, and prevent default
 
 ```bash
 docker-compose up
