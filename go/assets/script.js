@@ -42,4 +42,15 @@ window.onload = function () {
             }
         )
     }
+
+    document.getElementById("render").onclick = function(e) {
+        e.preventDefault()
+        var els = document.getElementById("rawlatexwrapper").childNodes
+        els[els.length - 1].remove()
+
+        var text = document.getElementById("rawlatex").value
+        var generator = new latexjs.HtmlGenerator({ hyphenate: false })
+        generator = latexjs.parse(text, { generator: generator })
+        document.getElementById("rawlatexwrapper").appendChild(generator.domFragment())
+    }
 }

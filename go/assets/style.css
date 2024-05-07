@@ -64,3 +64,12 @@ input {
 input:hover, button:hover {
     box-shadow: 0px 0px 0px 0px transparent;
 }
+
+div#rawlatexwrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div#rawlatexwrapper > * {
+    width: 100%;
+}
