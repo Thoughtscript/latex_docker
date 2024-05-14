@@ -1,4 +1,4 @@
-const XHR = function (url) {
+const XHR = function (url, data=undefined) {
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest()
 
@@ -13,10 +13,10 @@ const XHR = function (url) {
         xhr.setRequestHeader('Content-Type', 'application/json')
         xhr.withCredentials = false
 
-        xhr.send()
+        if (data) xhr.send(data)
+        else xhr.send()
     })
 }
-
 
 window.onload = function () {
 
@@ -32,6 +32,7 @@ window.onload = function () {
                 const br = document.createElement("br")
                 r.appendChild(br)
             },
+
             function (failure) {
                 const r = document.getElementById("result")
                 const n = document.createTextNode(failure)
@@ -53,4 +54,30 @@ window.onload = function () {
         generator = latexjs.parse(text, { generator: generator })
         document.getElementById("rawlatexwrapper").appendChild(generator.domFragment())
     }
+
+    document.getElementById("save").onclick = function(e) {
+        e.preventDefault()
+        var text = document.getElementById("rawlatex").value
+
+        XHR("https://localhost/api/latex/save", text).then(
+            function (success) {
+                const r = document.getElementById("result")
+                const n = document.createTextNode("Success!")
+                //console.log(success)
+                r.appendChild(n)
+                const br = document.createElement("br")
+                r.appendChild(br)
+            },
+/*
+            function (failure) {
+                const r = document.getElementById("result")
+                const n = document.createTextNode(failure)
+                console.log(failure)
+                r.appendChild(n)
+                const br = document.createElement("br")
+                r.appendChild(br)
+            }
+*/
+        )
+    }   
 }

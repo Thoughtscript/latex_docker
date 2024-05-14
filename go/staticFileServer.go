@@ -14,6 +14,7 @@ func main() {
 
 	http.HandleFunc("/api/pdf/make", h.MakePdf)
 	http.HandleFunc("/api/pdf/upload", h.UploadText)
+	http.HandleFunc("/api/latex/save", h.SaveLaTeX)
 
 	// TLS
 	port := ":443"

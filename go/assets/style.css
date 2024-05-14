@@ -73,3 +73,7 @@ div#rawlatexwrapper {
 div#rawlatexwrapper > * {
     width: 100%;
 }
+
+button#save {
+    margin-left: 25px;
+}

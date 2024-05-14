@@ -11,7 +11,7 @@
 - [x] Support for uploading text through the browser
 - [x] Support for regenerating the pdf within the container
 - [x] Support for writing LaTeX in the browser (and rendering it)
-- [ ] Support for saving LaTeX in the browser to `paper.tex`
+- [x] Support for saving LaTeX in the browser to `paper.tex`
 - [ ] Better styling
 - [ ] Tweak some JS and HTML functionality around redirects, rerendering, and prevent default
 
@@ -27,6 +27,7 @@ View the PDF and write LaTeX:
 
 1. https://localhost/api/pdf/make - POST endpoint that'll regenerate the PDF file without having to restart the container. Is called from the view above.
 1. https://localhost/api/pdf/upload - POST endpoint that'll allow a file to be uploaded to overwrite `paper.tex` so it can be recompile (allows raw `.tex` files to uploaded to the container to be compiled into `.pdf`).
+1. https://localhost/api/latex/save - POST endpoint to save inputted text to `paper.tex` (better UI and Nav features to be added to provide basic but fuller text editor support).
 
 > Note: all of the commands assume `paper.tex` is the relevant filename and filetype.
 

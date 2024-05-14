@@ -7,6 +7,7 @@ import (
 	"os"
 	"fmt"
 	"io/ioutil"
+	"io"
 	"net/http"
 )
 
@@ -87,6 +88,42 @@ func UploadText(w http.ResponseWriter, r *http.Request) {
 
 		// Copy tempfile into fixed file
 		input, err := ioutil.ReadFile(tempFile.Name())
+		if err != nil {
+			fmt.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+
+		destinationFile := "assets/paper.tex"
+		err = ioutil.WriteFile(destinationFile, input, 0644)
+		if err != nil {
+			fmt.Println("Error creating", destinationFile)
+			fmt.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+
+	} else {
+		w.WriteHeader(http.StatusMethodNotAllowed)
+	}
+}
+
+func SaveLaTeX(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	if r.Method == http.MethodPost {
+		// https://www.practical-go-lessons.com/post/go-how-to-send-post-http-requests-with-a-json-body-cbhvuqa220ds70kp2lkg
+		defer r.Body.Close()
+		// This is a preferred way to extract textual info sent via XHR
+		input, err := io.ReadAll(r.Body)
+		// https://pkg.go.dev/io#example-ReadAll
+		if err != nil {
+			fmt.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+
+		fmt.Fprintf(w, "Successfully Uploaded LaTeX Text!")
+
+		w.WriteHeader(http.StatusCreated)
+		err = json.NewEncoder(w).Encode("Success!")
 		if err != nil {
 			fmt.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
