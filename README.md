@@ -13,7 +13,7 @@
 - [x] Support for writing LaTeX in the browser (and rendering it)
 - [x] Support for saving LaTeX in the browser to `paper.tex`
 - [ ] Better styling
-- [ ] Tweak some JS and HTML functionality around redirects, rerendering, and prevent default
+- [x] Tweak some JS and HTML functionality around redirects, rerendering, and prevent default
 
 ```bash
 docker-compose up
