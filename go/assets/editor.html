@@ -29,40 +29,17 @@
         ********************************************************************************
         *                                   SCRIPTS                                    *
         ********************************************************************************
-        -->
+        -->   
         <script src="https://cdn.jsdelivr.net/npm/latex.js@0.12.6/dist/latex.js"></script>
     </head>
     <body>
         <div id='content-wrapper'>
             <div class="row">
-                <h1>LaTex PDF Test Page</h1>
-            </div>
-
-            <div class="row">
-              <iframe id="pdfviewer" src="paper.pdf" type="application/pdf"></iframe>
-            </div>
-
-            <div class="row">
-              <button id="recompile">Recompile</button>
-            </div>
-
-            <div class="row">
-              <div id="result">
-                 <h3>LaTex PDF Out</h1>
-
-              </div>
-            </div>
-
-            <div class="row">
-              <!-- Don't need to explicitly set enctype="multipart/form-data" here for FormData-->
-              <form id="fileform">
-                <input type="file" name="paper.tex" accept=".tex" />
-              </form>
-              <button id="uploadbtn">Upload</button>
+                <h1>LaTex PDF Editor</h1>
             </div>
 
             <div class="row" id="rawlatexwrapper">
-              <textarea id="rawlatex" rows="10" cols="33">
+              <textarea id="rawlatex" rows="50" cols="33">
                 \documentclass{article}
 
                 \begin{document}
@@ -74,6 +51,13 @@
             <div class="row">
               <button id="render">Render</button>
               <button id="save">Save</button>
+            </div>
+
+            <div class="row">
+                <div id="result">
+                   <h3>LaTex PDF Out</h1>
+  
+                </div>
             </div>
         </div>
 

@@ -35,7 +35,7 @@
     <body>
         <div id='content-wrapper'>
             <div class="row">
-                <h1>LaTex PDF Test Page</h1>
+                <h1>LaTex PDF Viewer</h1>
             </div>
 
             <div class="row">
@@ -47,33 +47,18 @@
             </div>
 
             <div class="row">
-              <div id="result">
-                 <h3>LaTex PDF Out</h1>
-
-              </div>
-            </div>
-
-            <div class="row">
               <!-- Don't need to explicitly set enctype="multipart/form-data" here for FormData-->
               <form id="fileform">
                 <input type="file" name="paper.tex" accept=".tex" />
               </form>
               <button id="uploadbtn">Upload</button>
             </div>
-
-            <div class="row" id="rawlatexwrapper">
-              <textarea id="rawlatex" rows="10" cols="33">
-                \documentclass{article}
-
-                \begin{document}
-                Hello World.
-                \end{document}
-              </textarea>
-            </div>
-
+            
             <div class="row">
-              <button id="render">Render</button>
-              <button id="save">Save</button>
+                <div id="result">
+                   <h3>LaTex PDF Out</h1>
+  
+                </div>
             </div>
         </div>
 

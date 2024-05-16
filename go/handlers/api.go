@@ -50,6 +50,12 @@ func UploadText(w http.ResponseWriter, r *http.Request) {
 		// Get and retrieve bytes from multipart upload
 		r.ParseMultipartForm(10 << 20)
 		file, handler, err := r.FormFile("paper.tex")
+		// Should add file type (and parsing) validation in prod
+		// no database but writes to disk
+
+		// Ideally, the files would be written to temp external file store instead
+		// but for the sake of this example and make 
+		// it useable partially offline I'll keep it this way
 		if err != nil {
 			fmt.Println("Error Retrieving the File")
 			fmt.Println(err)
@@ -120,10 +126,8 @@ func SaveLaTeX(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusBadRequest)
 		}
 
-		fmt.Fprintf(w, "Successfully Uploaded LaTeX Text!")
-
 		w.WriteHeader(http.StatusCreated)
-		err = json.NewEncoder(w).Encode("Success!")
+		err = json.NewEncoder(w).Encode("Successfully Uploaded LaTeX Text!")
 		if err != nil {
 			fmt.Println(err)
 			w.WriteHeader(http.StatusBadRequest)

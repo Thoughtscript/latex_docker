@@ -22,6 +22,8 @@ docker-compose up
 View the PDF and write LaTeX:
 
 1. https://localhost/public/ - a view, into the container (can also get the PDF from **Docker Desktop** > **Container Files**).
+2. https://localhost/public/editor.html - a compressed view into the container to edit and modify LaTeX.
+3. https://localhost/public/viewer.html - a compressed view into the container to compile and view pdf's.
 
 ## API Endpoints
 
