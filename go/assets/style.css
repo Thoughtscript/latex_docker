@@ -85,3 +85,7 @@ div#rawlatexwrapper > * {
 button#save {
     margin-left: 25px;
 }
+
+iframe#cmdhelp {
+    width: 100%;
+}
