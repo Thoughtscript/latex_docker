@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <!--
+        ********************************************************************************
+        *                                   COMPATIBILITY                              *
+        ********************************************************************************
+        -->
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--
+        ********************************************************************************
+        *                                   FAVICON                                    *
+        ********************************************************************************
+        -->
+        <!-- <link rel="shortcut icon" href="carbon_favicon.svg" type="image/x-icon">-->
+        
+        <!--
+        ********************************************************************************
+        *                                   STYLES                                     *
+        ********************************************************************************
+        -->
+        <link rel="stylesheet" href="style.css">
+
+        <!--
+        ********************************************************************************
+        *                                   SCRIPTS                                    *
+        ********************************************************************************
+        -->   
+        <script src="https://cdn.jsdelivr.net/npm/latex.js@0.12.6/dist/latex.js"></script>
+    </head>
+    <body>
+        <div id='content-wrapper'>
+            <div class="row">
+                <h1>LaTex PDF Editor</h1>
+            </div>
+
+            <div class="row" id="rawlatexwrapper">
+              <textarea id="rawlatex" rows="50" cols="33">
+                \documentclass{article}
+
+                \begin{document}
+                Hello World.
+                \end{document}
+              </textarea>
+            </div>
+
+            <div class="row">
+              <button id="recompile">Recompile</button>
+              <button id="save">Save</button>
+            </div>
+            <div class="row">
+              <div id="result">
+                 <h3>LaTex PDF Out</h1>
+
+              </div>
+          </div>
+           
+            <div class="row">
+              <iframe id="pdfviewer" src="paper.pdf" type="application/pdf"></iframe>
+            </div>
+
+            <div class="row">
+              <iframe id="cmdhelp" src="https://wch.github.io/latexsheet/latexsheet-0.png"></iframe>
+            </div>
+
+        </div>
+
+        <!--
+        ********************************************************************************
+        *                                   SCRIPTS                                    *
+        ********************************************************************************
+        -->
+        <script src="./script.js"></script>
+    </body>
+</html>

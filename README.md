@@ -13,6 +13,8 @@
 - [x] Support for writing LaTeX in the browser (and rendering it)
 - [x] Support for saving LaTeX in the browser to `paper.tex`
 - [ ] Better styling
+- [ ] Better editing
+- [ ] Better navigation
 - [x] Tweak some JS and HTML functionality around redirects, rerendering, and prevent default
 
 ```bash
@@ -21,9 +23,10 @@ docker-compose up
 
 View the PDF and write LaTeX:
 
-1. https://localhost/public/ - a view, into the container (can also get the PDF from **Docker Desktop** > **Container Files**).
-2. https://localhost/public/editor.html - a compressed view into the container to edit and modify LaTeX.
+1. https://localhost/public/ - a view, into the container (can also get the PDF from **Docker Desktop** > **Container Files**). (**Experimental**)
+2. https://localhost/public/editor.html - a compressed view into the container to edit and modify LaTeX. (**Experimental**)
 3. https://localhost/public/viewer.html - a compressed view into the container to compile and view pdf's.
+4. https://localhost/public/pdfeditor.html - slightly more reliable way to edit and render text live.
 
 ## API Endpoints
 
