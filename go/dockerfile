@@ -10,6 +10,9 @@ RUN apt upgrade
 RUN apt autoremove
 
 RUN apt purge libkpathsea6
+# LaTeX core dependencies
+## amsmath is inin Ubuntu path
+## /usr/share/texlive/texmf-dist/tex/latex/amsmath
 RUN apt install texlive-latex-recommended -y
 
 RUN apt install golang-go -y
