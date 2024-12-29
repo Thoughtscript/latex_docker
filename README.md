@@ -19,6 +19,9 @@
 
 ```bash
 docker-compose up
+
+# If using Docker Compose Engine V2:
+docker compose up
 ```
 
 View the PDF and write LaTeX:
