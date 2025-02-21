@@ -26,10 +26,18 @@ docker compose up
 
 View the PDF and write LaTeX:
 
-1. https://localhost/public/ - a view, into the container (can also get the PDF from **Docker Desktop** > **Container Files**). (**Experimental**)
-2. https://localhost/public/editor.html - a compressed view into the container to edit and modify LaTeX. (**Experimental**)
-3. https://localhost/public/viewer.html - a compressed view into the container to compile and view pdf's.
-4. https://localhost/public/pdfeditor.html - slightly more reliable way to edit and render text live.
+1. https://localhost/public/
+    * A view, into the container (can also get the PDF from **Docker Desktop** > **Container Files**). (**Experimental**)
+2. https://localhost/public/editor.html
+    * A compressed view into the container to edit and modify LaTeX. (**Experimental**)
+    * Lacks support for many commonly used libraries like `amsmath` (but does support basic LaTeX to some extent).
+    * This is mostly to explore the limits of the [LATEX.js](https://github.com/michael-brade/LaTeX.js)
+3. https://localhost/public/viewer.html 
+    * A compressed view into the container to compile and view pdf's.
+4. https://localhost/public/pdfeditor.html 
+    * Slightly more reliable way to edit and render text live.
+    * **Use this view by default.**
+    * Has supprt for `amsmath` and most other commonly used libraries.
 
 ## API Endpoints
 
